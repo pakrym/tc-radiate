@@ -1,6 +1,6 @@
 ﻿var organizationSettings = {
     //The url that points to team city
-    teamCityUrl: 'https://todo.edit.this.url.invalid',
+    teamCityUrl: 'https://aspnetci',
 
     //Only show builds for branches that satisfy the predicate
     branchFilter: function(branch) {
@@ -9,8 +9,8 @@
                 !branch.name /* No branch name is there for builds with no VCS roots at all, or when 'Branch specification' is left empty (e.g. when not using feature branches at all)*/
                 || [
                     "<default>"/*This branch name is used for the default builds, when there are multiple VCS roots with different branches (e.g. source and config files are in different repos) */,
-                    "master",
-                    "refs/heads/master" /* Long Git 'refs/...' names are used when 'Branch specification' doesn't have a '*' and paretheses are also not being used to mark the 'Logical branch name' - see https://confluence.jetbrains.com/display/TCD9/Working+with+Feature+Branches#WorkingwithFeatureBranches-Logicalbranchname */,
+                    "dev",
+                    "refs/heads/dev" /* Long Git 'refs/...' names are used when 'Branch specification' doesn't have a '*' and paretheses are also not being used to mark the 'Logical branch name' - see https://confluence.jetbrains.com/display/TCD9/Working+with+Feature+Branches#WorkingwithFeatureBranches-Logicalbranchname */,
                     "develop",
                     "refs/heads/develop"
                 ].indexOf(branch.name) > -1
@@ -30,7 +30,7 @@ var DefaultSettings = {
 
     // If your TeamCity is set up for guest access, you can just use it. Otherwise, the moment that tc-radiate sends first request to TC, TC will
     // ask the user for basic http credentials. Your browser may even offer you to save them.
-    useTeamCityGuest: false,
+    useTeamCityGuest: true,
 
     //How often to refresh the whole page in order to update the application (to get all the latest changes without having to come to the monitor and refresh).
     // Set to [0/undefined/null] to disable just this. Use enableAutoUpdate to disable this and any data updates.
